@@ -16,6 +16,13 @@
 .drizzle{
   background-image: url('/images/rain.jpg');
 }
+.fog{
+  background-image: url('/images/fog.jpg');
+}
+.thunderstorm{
+  background-image: url('/images/rain.jpg');
+}
+
 
 body{
   font-family: 'Trebuchet MS';

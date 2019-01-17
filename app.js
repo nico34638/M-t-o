@@ -1,11 +1,12 @@
 const weatherIcons = {
   "Rain": "wi wi-day-rain",
-  "Thunderstorm": "wi wi-day-rain",
+  "Thunderstorm": "wi wi-day-thunderstorm",
   "Clouds": "wi wi-day-cloudy",
   "Clear": "wi wi-day-sunny",
   "Snow": "wi wi-day-snow",
   "Fog": "wi wi-day-fog",
-  "Drizzle": "wi wi-day-sleet"
+  "Drizzle": "wi wi-day-sleet",
+  "Haze": "wi wi-day-fog"
 }
 function capitalize(str){
   return str[0].toUpperCase() + str.slice(1);
@@ -14,6 +15,7 @@ function capitalize(str){
 function formatTemp(Temp){
   return Temp[0] + Temp[1]
 }
+
 async function main(withIP = true){
 
   let ville;
@@ -22,9 +24,10 @@ async function main(withIP = true){
       .then(resultat => resultat.json())
       .then(json => json.ip)
 
-    ville = await fetch('https://freegeoip.net/json/' + ip)
+    ville = await fetch('http://ip-api.com/json/' + ip)
       .then(resultat => resultat.json())
       .then(json => json.city)
+    console.log(ville)
   }
   else{
     ville = document.querySelector('#ville').textContent;
